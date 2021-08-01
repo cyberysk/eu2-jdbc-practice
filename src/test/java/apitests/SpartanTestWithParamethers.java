@@ -11,6 +11,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,11 +47,11 @@ public class SpartanTestWithParamethers {
         Assert.assertEquals(response.statusCode(), 200);
 
         //verify response content type : application/json
-        Assert.assertEquals(response.getHeader("Content-Type"), "application/json");
+        assertEquals(response.getHeader("Content-Type"), "application/json");
 
         //verify response body contains "Blythe"
         System.out.println(response.body().asString());
-        Assert.assertTrue(response.body().asString().contains("Blythe"));
+        assertTrue(response.body().asString().contains("Blythe"));
     }
         @Test
         public void getSpratanId_Positive_PathParam (){
@@ -114,6 +115,7 @@ public class SpartanTestWithParamethers {
 
         assertEquals(response.statusCode(), 200);
         assertEquals(response.contentType(), "application/json");
+        //verify body contains
         assertTrue(response.getBody().asString().contains("Female"));
         assertTrue(response.getBody().asString().contains("Janette"));
 
