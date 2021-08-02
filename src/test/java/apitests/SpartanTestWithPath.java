@@ -31,7 +31,7 @@ public class SpartanTestWithPath {
      And path param id is 10
      When user sends a get request to "api/spartans/{id}"
      Then status code is 200
-     And content-type is "application/json;char"
+     And content-type is "application/json"
      And response payload values match the following:
              id is 10,
              name is "Lorenza",
@@ -46,7 +46,7 @@ public class SpartanTestWithPath {
                 .when().get("api/spartans/{id}");
 
         assertEquals(response.statusCode(),200);
-        assertEquals(response.contentType(),"application/json;charset=UTF-8");
+        assertEquals(response.contentType(),"application/json");
 
         //print each key value from jsonbody
         System.out.println(response.body().path("id").toString());
@@ -54,7 +54,7 @@ public class SpartanTestWithPath {
         System.out.println(response.body().path("gender").toString());
         System.out.println(response.path("phone").toString());
 
-        //save json values
+        //save json values = actual values
         int id = response.path("id");
         String name = response.path("name");
         String gender = response.path("gender");
@@ -83,7 +83,7 @@ public class SpartanTestWithPath {
 
         //verify the content type
         System.out.println(response.getHeader("Content-Type"));
-        assertEquals(response.getHeader("Content-Type"), "application/json;charset=UTF-8");
+        assertEquals(response.getHeader("Content-Type"), "application/json");
 
         //headers value print
         System.out.println(response.headers().getValue("Transfer-Encoding"));
