@@ -82,7 +82,7 @@ public class SpartanTestWithPath {
         assertEquals(response.statusCode(), 200);
 
         //verify the content type
-        System.out.println(response.getHeader("Content-Type"));
+        //System.out.println(response.getHeader("Content-Type"));
         assertEquals(response.getHeader("Content-Type"), "application/json");
 
         //headers value print
@@ -91,21 +91,22 @@ public class SpartanTestWithPath {
         // check header is on there or not
         System.out.println(response.headers().hasHeaderWithName("Date"));
 
-        int firstId = response.path("id[1]");
+        int firstId = response.path("id[0]");//shows first spartan's id
         System.out.println("firstId = " + firstId);
 
-        String firstName = response.path("name[2]");
+        String firstName = response.path("name[2]");//shows third spartan's firstname, like array index but it's gpath index
         System.out.println("firstName = " + firstName);
 
-        String lastFirstName = response.path("name[-1]");
+        String lastFirstName = response.path("name[-1]");//shows last spartan's name
         System.out.println("lastFirstName = " + lastFirstName);
 
         //print all first names from spartans
-
         List<String> names = response.path("name");
         System.out.println(names);
 
         List<Object> phones = response.path("phone");
+        //how many spartans we have
+        System.out.println("we have " + phones.size() + " spartan");
         for (Object eachPhone : phones) {
             System.out.println(eachPhone);
         }
