@@ -22,7 +22,7 @@ public class SpartanTestWithParamethers {
 
         //if you define address as BaseURI you will not need
         // after that right that you can write directly end point
-       RestAssured.baseURI = "http://100.27.15.76:8000";
+       RestAssured.baseURI = "http://3.93.199.110:8000";
     }
 
     /* Given accept type is json
