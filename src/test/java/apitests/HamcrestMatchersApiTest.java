@@ -28,9 +28,9 @@ public class HamcrestMatchersApiTest {
         given().accept(ContentType.JSON)
                 .and().pathParam("id", 15)
                 .and().auth().basic("admin", "admin")
-        .when().get("http://100.26.244.91:8000/api/spartans/{id}")
+        .when().get("http://3.93.199.110:8000/api/spartans/{id}")
         .then().statusCode(200)
-                .assertThat().contentType("application/json;charset=UTF-8")
+                .assertThat().contentType("application/json")
                 .and().assertThat().body("id", equalTo(15),
                 "name", equalTo("Meta"),
                                         "gender", equalTo("Female"),
@@ -39,16 +39,15 @@ public class HamcrestMatchersApiTest {
     @Test
     public void teacherData(){
         given().accept(ContentType.JSON)
-                .pathParam("id","6884")
+                .pathParam("id","10423")
                 .when().get("http://api.cybertektraining.com/teacher/{id}")
                 .then().assertThat().statusCode(200)
                         .and().contentType("application/json;charset=UTF-8")
-                        .and().header("Content-Length",equalTo("254"))
                         .and().header("Connection", equalTo("Keep-Alive") )
                         .and().header("Date", notNullValue())
-                        .and().body("teachers.firstName[0]", equalTo("Harold"))
-                        .and().body("teachers.lastName[0]", equalTo("Kim"),
-                        "teachers.gender[0]",equalTo("Male"));
+                        .and().body("teachers.firstName[0]", equalTo("Alexander"))
+                        .and().body("teachers.lastName[0]", equalTo("Syrup"),
+                        "teachers.gender[0]",equalTo("male"));
 
     }
 
@@ -63,7 +62,7 @@ public class HamcrestMatchersApiTest {
                 .pathParam("name", "Computer")
         .when().get("http://api.cybertektraining.com/teacher/department/{name}")
                 .then().statusCode(200).and().contentType("application/json;charset=UTF-8")
-                .and().assertThat().body("teachers.firstName", hasItems("tvrec", "Marteen","Alexander"));
+                .and().assertThat().body("teachers.firstName", hasItems("Marteen","Alexander"));
 
 
 
