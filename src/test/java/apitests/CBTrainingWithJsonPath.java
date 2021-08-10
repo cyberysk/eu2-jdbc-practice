@@ -7,6 +7,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilities.ConfigurationReader;
 
+import java.util.List;
+import java.util.Map;
+
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
@@ -50,6 +53,27 @@ public class CBTrainingWithJsonPath {
         //some assertions
         assertEquals(city,"McLean");
         assertEquals(zipCode,22102);
+
+    }
+
+    @Test
+    public void testYsk(){
+        Response response = given().accept(ContentType.JSON)
+                .and().get("/student/all");
+
+        JsonPath json = response.jsonPath();
+
+        List<String> allNamesList = json.getList("students.firstName");
+        System.out.println("allNamesList = " + allNamesList);
+
+        String allNames = json.getString("students.firstName");
+        System.out.println("allNames = " + allNames);
+
+        String firstStudentsName = json.getString("students.firstName[0]");
+        System.out.println("firstStudentsName = " + firstStudentsName);
+
+
+
 
     }
 

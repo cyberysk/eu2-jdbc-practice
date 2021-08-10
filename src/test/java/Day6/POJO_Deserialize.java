@@ -26,7 +26,7 @@ public class POJO_Deserialize {
        Response response =  given().accept(ContentType.JSON)
                 .and().pathParam("id", 15)
                 .and().auth().basic("admin", "admin")
-                .when().get("http://100.26.244.91:8000/api/spartans/{id}");
+                .when().get("http://3.93.199.110:8000/api/spartans/{id}");
 
         assertEquals(response.statusCode(),200);
 
@@ -83,6 +83,8 @@ public class POJO_Deserialize {
         Spartan spartan = gson.fromJson(myJson, Spartan.class);
 
         Map<String, Object> map = gson.fromJson(myJson, Map.class);
+
+//        System.out.println(map.toString());
 
         System.out.println(spartan.toString());
 

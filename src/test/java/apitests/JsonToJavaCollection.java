@@ -69,7 +69,7 @@ public class JsonToJavaCollection {
     @Test
     public void regionJsonMap(){
 
-        Response response = when().get("http://100.26.244.91:1000/ords/hr/regions");
+        Response response = when().get("http://3.93.199.110:1000/ords/hr/regions");
 
         assertEquals(response.statusCode(),200);
 

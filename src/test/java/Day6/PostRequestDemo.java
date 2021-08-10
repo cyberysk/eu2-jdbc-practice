@@ -47,7 +47,7 @@ public class PostRequestDemo {
                 .and().contentType(ContentType.JSON)
                 .and().auth().basic("admin", "admin")
                 .and().body(jsonBody)
-                 .when().post("/api/spartans");
+                .when().post("/api/spartans");
 
         //verify status code
         assertEquals(response.statusCode(),201);
