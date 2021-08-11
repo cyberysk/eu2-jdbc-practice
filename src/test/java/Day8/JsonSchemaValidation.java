@@ -21,7 +21,7 @@ public class JsonSchemaValidation {
     public void JsonSchemaValidationForSpartan(){
         given().accept(ContentType.JSON)
                 .and().auth().basic("admin", "admin")
-                .pathParam("id", 50)
+                .pathParam("id", 3)
                 .when().get("/api/spartans/{id}").then()
                 .assertThat().statusCode(200)
                 .and().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("SingleSpartanSchema.json"));
