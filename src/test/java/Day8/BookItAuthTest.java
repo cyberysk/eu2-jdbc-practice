@@ -5,6 +5,7 @@ import io.restassured.response.Response;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static io.restassured.RestAssured.authentication;
 import static io.restassured.RestAssured.given;
 
 public class BookItAuthTest {
@@ -22,5 +23,6 @@ public class BookItAuthTest {
 
         response.prettyPrint();
     }
+
 
 }
